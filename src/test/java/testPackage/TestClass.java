@@ -17,26 +17,15 @@ public class TestClass {
 
     WebDriver driver;
 
-
-    @Parameters("browser")
     @BeforeMethod
 
-    public void setUp(@Optional("chrome") String browser) {
-        if (browser.equalsIgnoreCase("firefox")) {
-            WebDriverManager.firefoxdriver().setup();
-            driver = new FirefoxDriver();
-        } else {
-            WebDriverManager.chromedriver().setup();
+    public void setUp() {
             driver = new ChromeDriver();
-        }
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-
     }
 
 
     @Test
-    public void q1() throws InterruptedException {
+    public void q1()  {
         driver.navigate().to("https://duckduckgo.com");
 
         String title = driver.getTitle();
@@ -55,7 +44,7 @@ public class TestClass {
     }
 
     @Test
-    public void q3() throws InterruptedException {
+    public void q3()  {
         driver.navigate().to("https://duckduckgo.com");
 
         driver.findElement(By.id("searchbox_input")).clear();
@@ -68,7 +57,6 @@ public class TestClass {
 
     }
 
-    @Parameters("firefox")
     @Test
 
     public void q4() {
