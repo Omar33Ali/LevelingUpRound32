@@ -81,8 +81,6 @@ public class TestClass {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#r1-2 h2 span")));
 
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-
         String title = element.getText();
         Assert.assertEquals(title, "TestNG Tutorial", "Not expected Text");
     }
